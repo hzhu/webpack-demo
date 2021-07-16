@@ -1,12 +1,15 @@
-import _ from "lodash";
+import React from "react";
+import ReactDOM from "react-dom";
+import { ThemeProvider } from "@zendeskgarden/react-theming";
+import { XXL } from "@zendeskgarden/react-typography";
+import { cube } from "./math";
 
-function component() {
-  const element = document.createElement("div");
+const App = () => {
+  return (
+    <ThemeProvider>
+      <XXL>5 cubed is equal to {cube(5)}</XXL>
+    </ThemeProvider>
+  );
+};
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-
-  return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(<App />, document.getElementById("root"));
